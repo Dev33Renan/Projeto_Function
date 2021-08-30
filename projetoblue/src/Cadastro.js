@@ -8,7 +8,7 @@ export default function Cadastro() {
       id: 1,  
       nome: 'A Guerra do Amanhã',
       imageUrl: 
-      "https://www.imdb.com/title/tt9777666/mediaviewer/rm4098488833/?ref_=tt_ov_i",
+      "https://br.web.img3.acsta.net/pictures/21/05/26/20/19/2966501.jpg",
     },
     
   ]);
