@@ -9,12 +9,15 @@ export default function Cadastro() {
       nome: 'A Guerra do Amanhã',
       imageUrl: 
       "https://br.web.img3.acsta.net/pictures/21/05/26/20/19/2966501.jpg",
+      videoFilmes: '<iframe width="560" height="315" src="https://www.youtube.com/embed/a9SIdBq-KEc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+
     },
     
   ]);
   
   const [nomeFilme, setNomeFilme] = useState("");
   const [urlFilme, setUrlFilme] = useState("");
+  const [videoFilme, setVideoFilme] = useState("");
   const [atualizando, setAtualizando] = useState(false);
   const [idEdicao, setIdEdicao] = useState(null);
 
@@ -34,14 +37,20 @@ export default function Cadastro() {
     setUrlFilme(evento.target.value);
   }
 
+  const handelVideoChange = (evento) => {
+    setVideoFilme(evento.target.value);
+  }
+
   const handleSubmit = (evento) => {
     evento.preventDefault();
     if(atualizando) {
+      console.log(atualizando)
       const listaAtualizada = filmes.map((filme, indice) => {
         
         if(idEdicao === indice) {
-          filmes.nome = nomeFilme;
-          filmes.urlFilme = urlFilme;
+          filme.nome = nomeFilme;
+          filme.urlFilme = urlFilme;
+          filme.videoFilme = videoFilme;
         }
         return filme
       });
@@ -58,10 +67,12 @@ export default function Cadastro() {
         {
           nome: nomeFilme,
           imageUrl: urlFilme,
+          videoFilmes: videoFilme,
         }
       ]);
       setNomeFilme("");
       setUrlFilme("");
+      setVideoFilme("");
     }
   }
 
@@ -89,13 +100,11 @@ export default function Cadastro() {
                 { filme.nome }
                 </p>
                 <p>
-                { filme.imageUrl }
+                  <img src={filme.imageUrl} alt={filme.nome}/>
+                  <img src={filme.videoFilmes} alt={filme.videoFilmes}/>
                 </p>
                 <button type="button" onClick={() => handleDelete(indice) }>Excluir</button>
-                <button type="button" onClick={() => {
-                setAtualizando(true);
-                setIdEdicao(indice);
-                }}>Editar</button>
+                <button type="button" onClick={() => {setAtualizando(true); setIdEdicao(indice);}}>Editar</button>
             </li>
             ))}
                     
