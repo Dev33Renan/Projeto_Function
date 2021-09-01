@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(#4444, rgb(54, 41, 41));
+    text-align: center;
+}
+
+
+
+form {
+    border-radius: 8px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgb(224, 213, 213);
+    flex:16;
+    margin: 100px;
+    box-sizing: border-box;
+    
+}
+
+h1, h2, ul, label{
+    font-family: monospace;
+    font-size: 2rem;
+    border: initial;
+
+}
+
+button {
+    flex:20px;
+    font-family: monospace;
+    font-size: 2rem;
+}

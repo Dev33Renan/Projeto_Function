@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './Cadastro.css';
 import Cadastro from './Cadastro';
 
 export default function Project(){

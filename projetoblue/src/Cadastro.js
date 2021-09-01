@@ -88,7 +88,7 @@ export default function Cadastro() {
             <label>Digite o nome:</label>
             <input type="text" value={nomeFilme} onChange={handleNomeChange}/>
             <br/>
-            <label>Digite a Url a ser exibida:</label>
+            <label>Digite a url do filme:</label>
             <input type="" value={urlFilme} onChange={handleUrlChange}/>
             <br/>
             <button type="submit">Salvar</button>
@@ -100,8 +100,7 @@ export default function Cadastro() {
                 { filme.nome }
                 </p>
                 <p>
-                  <img src={filme.imageUrl} alt={filme.nome}/>
-                  <img src={filme.videoFilmes} alt={filme.videoFilmes}/>
+                  <img class="img"src={filme.imageUrl} alt={filme.nome}/>
                 </p>
                 <button type="button" onClick={() => handleDelete(indice) }>Excluir</button>
                 <button type="button" onClick={() => {setAtualizando(true); setIdEdicao(indice);}}>Editar</button>
