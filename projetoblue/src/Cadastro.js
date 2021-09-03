@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import Iframe from 'react-iframe';
 import './Cadastro.css';
 
 export default function Cadastro() {
@@ -41,7 +40,6 @@ export default function Cadastro() {
   
   const [nomeFilme, setNomeFilme] = useState("");
   const [urlFilme, setUrlFilme] = useState("");
-  // const [videoFilme, setVideoFilme] = useState("");
   const [atualizando, setAtualizando] = useState(false);
   const [idEdicao, setIdEdicao] = useState(null);
 
@@ -61,45 +59,49 @@ export default function Cadastro() {
     setUrlFilme(evento.target.value);
   }
 
-  // const handelVideoChange = (evento) => {
-  //   setVideoFilme(evento.target.value);
-  // }
-
+ 
   const handleSubmit = (evento) => {
     evento.preventDefault();
-    if(atualizando) {
-      console.log(atualizando)
-      const listaAtualizada = filmes.map((filme, indice) => {
-        
-        if(idEdicao === indice) {
-          filme.nome = nomeFilme;
-          filme.urlFilme = urlFilme;
-          // filme.videoFilme = videoFilme;
-        }
-        return filme
-      });
+    if (nomeFilme && urlFilme) {
 
-      setfilmes(listaAtualizada);
-
-      setAtualizando(false);
+      if(atualizando) {
+        console.log(atualizando)
+        const listaAtualizada = filmes.map((filme, indice) => {
+          
+          if(idEdicao === indice) {
+            filme.nome = nomeFilme;
+            filme.urlFilme = urlFilme;
             
-      setIdEdicao(null);
-    } else {
-      
-      setfilmes([
-        ...filmes,
-        {
-          nome: nomeFilme,
-          imageUrl: urlFilme,
-          // videoFilmes: videoFilme,
-        }
-      ]);
-      setNomeFilme("");
-      setUrlFilme("");
-      // setVideoFilme("");
+          }
+          return filme
+        });
+
+        setfilmes(listaAtualizada);
+
+        setAtualizando(false);
+              
+        setIdEdicao(null);
+
+        setNomeFilme("");
+
+        setUrlFilme("");
+                
+      } else {
+        
+        setfilmes([
+          ...filmes,
+          {
+            nome: nomeFilme,
+            imageUrl: urlFilme,
+            
+          }
+        ]);
+        setNomeFilme("");
+        setUrlFilme("");
+        
+      }
     }
   }
-
   const handleDelete = (indice) => {
     setfilmes(filmes.filter((filme, indiceFilme) => indice !== indiceFilme))
   };

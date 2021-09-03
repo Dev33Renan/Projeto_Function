@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Cadastro.css';
 import Cadastro from './Cadastro';
 
+
 export default function Project(){
   return <h1>Meu Projeto em React</h1>
 }
